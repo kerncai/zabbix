@@ -4,7 +4,9 @@
 配置完成后，将脚本放在所需要监控的机器上面，模板导入到web即可
 
 nginx配置如下：
+
 server {
+
         listen 40080;
         server_name _;
         allow 127.0.0.1;
@@ -14,6 +16,7 @@ server {
         fastcgi_pass unix:/tmp/php-fpm.sock;
         include fastcgi_params;
         fastcgi_param SCRIPT_FILENAME $fastcgi_script_name;
+
         }
 
 
