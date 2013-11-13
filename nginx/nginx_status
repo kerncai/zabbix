@@ -1,0 +1,4 @@
+UserParameter=Active,/usr/local/zabbix-agent-ops/bin/nginx_status.sh Active
+UserParameter=Reading,/usr/local/zabbix-agent-ops/bin/nginx_status.sh Reading
+UserParameter=Writing,/usr/local/zabbix-agent-ops/bin/nginx_status.sh Writing
+UserParameter=Waiting,/usr/local/zabbix-agent-ops/bin/nginx_status.sh Waiting
