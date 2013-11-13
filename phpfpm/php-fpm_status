@@ -1,0 +1,8 @@
+UserParameter=idle.processe,/usr/local/zabbix-agent-ops/bin/php-fpm_status.sh idle
+UserParameter=total.processes,/usr/local/zabbix-agent-ops/bin/php-fpm_status.sh total
+UserParameter=active.processes,/usr/local/zabbix-agent-ops/bin/php-fpm_status.sh active
+UserParameter=max.active.processes,/usr/local/zabbix-agent-ops/bin/php-fpm_status.sh mactive
+UserParameter=listen.queue.len,/usr/local/zabbix-agent-ops/bin/php-fpm_status.sh listenqueuelen
+UserParameter=listen.queue,/usr/local/zabbix-agent-ops/bin/php-fpm_status.sh listenqueue
+UserParameter=start.since,/usr/local/zabbix-agent-ops/bin/php-fpm_status.sh since
+UserParameter=accepted.conn,/usr/local/zabbix-agent-ops/bin/php-fpm_status.sh conn
