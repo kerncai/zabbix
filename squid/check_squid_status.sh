@@ -9,15 +9,15 @@
 /usr/local/squid-2.7/sbin/squidclient -h localhost -p 3128 mgr:info > /var/log/squid.txt
 
 five_min(){
-cat /var/log/squid.txt |grep 'Request Hit Ratios:' |awk '{print$5/100}'
+/usr/local/squid-2.7/sbin/squidclient -h localhost -p 3128 mgr:info |grep 'Request Hit Ratios:' |awk '{print$5/100}'
 }
 
 six_min(){
-cat /var/log/squid.txt |grep 'Request Hit Ratios:' |awk '{print$7/100}'
+/usr/local/squid-2.7/sbin/squidclient -h localhost -p 3128 mgr:info |grep 'Request Hit Ratios:' |awk '{print$7/100}'
 }
 
 objects(){
-cat /var/log/squid.txt |grep 'on-disk objects' |awk '{print$1}'
+/usr/local/squid-2.7/sbin/squidclient -h localhost -p 3128 mgr:info |grep 'on-disk objects' |awk '{print$1}'
 }
 
 space(){
