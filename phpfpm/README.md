@@ -5,8 +5,8 @@
 
 nginx配置如下：
 
-server {
 
+server {
         listen 40080;
         server_name _;
         allow 127.0.0.1;
@@ -16,16 +16,11 @@ server {
         fastcgi_pass unix:/tmp/php-fpm.sock;
         include fastcgi_params;
         fastcgi_param SCRIPT_FILENAME $fastcgi_script_name;
-
         }
-
-
-         
+       
 location /nginx_status {   #这里配置的是nginx的状态，和php-fpm的监控一样
-
          stub_status on;
       }
-
   }
       
          
