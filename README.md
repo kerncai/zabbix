@@ -8,26 +8,19 @@ The template of apache.memcached.redis.squid and varnish what the zabbix haved
 上面提到的监控，仓库内都是有脚本和模板的.例子：监控squid
 
 [root@monitor_test /]# cat check_squid_status.sh 
-#########################################################################
-# File Name: check_squid_status.sh
-# Author: kerncai
-# mail: kernkerncai@gmail.com
-# Created Time: 2013年11月12日 星期二 10时30分05秒
-#########################################################################
+
 #!/bin/bash
 
-squidclient -h localhost -p 3128 mgr:info > /var/log/squid.txt
-
 five_min(){
-    cat /var/log/squid.txt |grep 'Request Hit Ratios:' |awk '{print$5}' #5分钟的命中率
+    squidclient -h localhost -p 3128 mgr:info |grep 'Request Hit Ratios:' |awk '{print$5/100}' #5分钟的命中率
 }
 
 six_min(){
-    cat /var/log/squid.txt |grep 'Request Hit Ratios:' |awk '{print$7}' #60分钟内的命中率
+    squidclient -h localhost -p 3128 mgr:info |grep 'Request Hit Ratios:' |awk '{print$7/100}' #60分钟内的命中率
 }
 
 objects(){
-    cat /var/log/squid.txt |grep 'on-disk objects' |awk '{print$1}'  #缓存的数量
+    squidclient -h localhost -p 3128 mgr:info |grep 'on-disk objects' |awk '{print$1}'  #缓存的数量
 }
 
 space(){
