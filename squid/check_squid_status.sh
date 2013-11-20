@@ -6,8 +6,6 @@
 #########################################################################
 #!/bin/bash
 
-/usr/local/squid-2.7/bin/squidclient -h localhost -p 3128 mgr:info > /var/log/squid.txt
-
 five_min(){
 /usr/local/squid-2.7/bin/squidclient -h localhost -p 3128 mgr:info |grep 'Request Hit Ratios:' |awk '{print$5/100}'
 }
@@ -21,7 +19,7 @@ objects(){
 }
 
 space(){
-cat /var/log/squid.txt |grep 'Filesystem Space in use:'|awk -F '/' '{print$1}'|awk '{print$5}'
+/usr/local/squid-2.7/bin/squidclient -h localhost -p 3128 mgr:storedir|grep 'Filesystem Space in use:'|awk -F '/' '{print$1}'|awk '{print$5}'
 }
 
 $1
