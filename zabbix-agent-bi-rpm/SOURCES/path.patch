@@ -1,0 +1,50 @@
+diff -ru zabbix-2.2.5/conf/zabbix_agentd.conf zabbix-2.2.5-patched/conf/zabbix_agentd.conf
+--- zabbix-2.2.5/conf/zabbix_agentd.conf	2014-03-12 19:27:22.000000000 +0800
++++ zabbix-2.2.5-patched/conf/zabbix_agentd.conf	2014-09-15 12:12:14.340196886 +0800
+@@ -9,6 +9,7 @@
+ # Mandatory: no
+ # Default:
+ # PidFile=/tmp/zabbix_agentd.pid
++PidFile=/usr/local/zabbix-agent-bi/var/zabbix_agentd.pid
+ 
+ ### Option: LogFile
+ #	Name of log file.
+@@ -18,7 +19,7 @@
+ # Default:
+ # LogFile=
+ 
+-LogFile=/tmp/zabbix_agentd.log
++LogFile=/usr/local/zabbix-agent-bi/var/zabbix_agentd.log
+ 
+ ### Option: LogFileSize
+ #	Maximum size of log file in MB.
+@@ -131,7 +132,6 @@
+ # Default:
+ # Hostname=
+ 
+-Hostname=Zabbix server
+ 
+ ### Option: HostnameItem
+ #	Item used for generating Hostname if it is undefined.
+@@ -213,7 +213,8 @@
+ # Include=
+ 
+ # Include=/usr/local/etc/zabbix_agentd.userparams.conf
+-# Include=/usr/local/etc/zabbix_agentd.conf.d/
++Include=/usr/local/zabbix-agent-bi/etc/extra.conf
++Include=/usr/local/zabbix-agent-bi/etc/zabbix_agentd.conf.d/
+ 
+ ####### USER-DEFINED MONITORED PARAMETERS #######
+ 
+diff -ru zabbix-2.2.5/misc/init.d/fedora/core5/zabbix_agentd zabbix-2.2.5-patched/misc/init.d/fedora/core5/zabbix_agentd
+--- zabbix-2.2.5/misc/init.d/fedora/core5/zabbix_agentd	2014-03-12 19:27:23.000000000 +0800
++++ zabbix-2.2.5-patched/misc/init.d/fedora/core5/zabbix_agentd	2014-09-15 12:09:51.715205850 +0800
+@@ -18,7 +18,7 @@
+ 
+ RETVAL=0
+ prog="Zabbix Agent"
+-ZABBIX_BIN="/usr/local/sbin/zabbix_agentd"
++ZABBIX_BIN="/usr/local/zabbix-agent-bi/sbin/zabbix_agentd"
+ 
+ if [ ! -x ${ZABBIX_BIN} ] ; then
+         echo -n "${ZABBIX_BIN} not installed! "

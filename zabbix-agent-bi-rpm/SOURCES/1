@@ -1,0 +1,1 @@
+UserParameter=port[*],/usr/local/zabbix-howbuy-bi/bin/port-discovery.sh $1
