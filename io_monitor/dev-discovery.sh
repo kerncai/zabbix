@@ -1,7 +1,9 @@
 #!/bin/bash
 
-DEVICES=`iostat | awk '{ if ($1 ~ "^([sh]d[a-z])$") { print $1 } }'`
-
+num=$(iostat |grep -ni device:|awk '{print $1}'|awk -F\: '{print $1 }')
+((num=num+1))
+###增加lvm的监控
+DEVICES=$(iostat |sed -n "$num,$ p"|awk '{print $1}')
 COUNT=`echo "$DEVICES" | wc -l`
 INDEX=0
 echo '{"data":['
