@@ -1,0 +1,18 @@
+<body>
+    故障通知<br/>
+    所属业务:华翔<br/>
+    触发器: {TRIGGER.NAME}<br/>
+    主机名：{HOST.NAME}({IPADDRESS})<br/>
+    状态: {TRIGGER.STATUS}<br/>
+    告警项目:<br/>
+    {ITEM.NAME1} ({HOST.NAME1}:{ITEM.KEY1}): {ITEM.VALUE1}<br/>
+    告警快照:<br/>
+    <div style="line-height:1.7;color:#000000;font-size:14px;font-family:Arial">
+    <img src="cid:img1" orgwidth="1016" orgheight="376" data-image="1" style="width: 780px; height: 288px;">
+    </div>
+    ItemID:{ITEM.ID}<br/>
+    EventID: {EVENT.ID}<br/>
+    告警时间：{EVENT.DATE} {EVENT.TIME} <br/>
+    <br/>
+    详细信息:<a href="http://test/zabbix/history.php?action=showgraph&itemids[]={ITEM.ID}" target="_blank">登录查看</a><br/>
+</body>
